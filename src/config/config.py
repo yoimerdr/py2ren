@@ -191,34 +191,36 @@ def load(path, creates=True):
     return load_file(filepath)
 
 
-def create(path, name=None, store_modules=None, init_level=0, class_bases=None):
+def create(path, name=None, store_modules=None, level=0, class_bases=None):
     path = os.path.normpath(path)
 
     cfg_name = os.path.basename(path) if name is None else None
+
+    level = 0 if level is None else int(level)
 
     if os.path.isdir(path):
         modules = {}
         for filepath in listfiles(path, ('.py',)):
             parts = filepath.split(os.path.sep)
             current = modules
-            level = None
-            for level, part in enumerate(parts[:-1], start=1):
+            lvl = None
+            for lvl, part in enumerate(parts[:-1], start=1):
                 if part not in current:
-                    current[part] = {"modules": {}, "initLevel": init_level - level - 1}
+                    current[part] = {"modules": {}, "initLevel": level - lvl - 1}
                 current = current[part]["modules"]
             source = {}
-            if level is None:
+            if lvl is None:
                 if parts[-1] != "__init__.py":
-                    source["initLevel"] = init_level - 1
+                    source["initLevel"] = level - 1
             elif parts[-1] == "__init__.py":
-                source["initLevel"] = init_level - level
+                source["initLevel"] = level - lvl
             current[parts[-1]] = source
-        return ModuleConfig(name, store_modules, Module.map_modules(modules), init_level, class_bases or KNOWN_BASES)
+        return ModuleConfig(name, store_modules, Module.map_modules(modules), level, class_bases or KNOWN_BASES)
 
     elif os.path.isfile(path):
         if cfg_name is not None:
             name = filename(cfg_name)
-        return FileConfig(name, store_modules, init_level, class_bases or KNOWN_BASES)
+        return FileConfig(name, store_modules, level, class_bases or KNOWN_BASES)
     raise NonLoadableSourceConfigurationPath(path)
 
 
@@ -228,8 +230,8 @@ def dump_config(folder, config):
         json.dump(config.to_dict(), f, indent=2, ensure_ascii=False)
 
 
-def dump(path, name=None, store_modules=None, init_level=0, class_bases=None):
-    config = create(path, name, store_modules, init_level, class_bases)
+def dump(path, name=None, store_modules=None, level=0, class_bases=None):
+    config = create(path, name, store_modules, level, class_bases)
     path = path if isinstance(config, ModuleConfig) else os.path.dirname(path)
     dump_config(path, config)
     return config

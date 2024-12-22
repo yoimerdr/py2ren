@@ -122,7 +122,7 @@ class CodeConverter(object):
                 self._convert_node_expr(lines, node, remove_indexes, body_new_line)
 
         strip_indexes(lines, remove_indexes)
-        return "# transformation made by py2ren. " + body_new_line.join(lines)
+        return body_new_line.join(lines)
 
     def convert(self, code, name=None, init_level=None, module=None,
                 class_bases=None, init_offset=0, init_body_offset=4):
@@ -130,11 +130,12 @@ class CodeConverter(object):
         body_new_line = "\n" + (" " * init_body_offset)
 
         code = self.convert_simple(code, module, class_bases, body_new_line)
-
-        return "{}{}:{}{}".format(
-            " " * init_offset,
+        init_offset = " " * init_offset
+        return "{}{}\n{}{}:{}{}".format(
+            init_offset,
+            "# transformation made by py2ren. https://github.com/yoimerdr/py2ren",
+            init_offset,
             self._get_init_expression(name, init_level, module),
             body_new_line,
             code
-
         )

@@ -66,14 +66,3 @@ def listfiles(path, extensions=None, level=None, include_root=False):
                     yield os.path.join(root, name)
                 else:
                     yield name if root == _normpath else os.path.join(_root[1:], name)
-
-
-def dirfols(path, include_root=False):
-    if not os.path.isdir(path):
-        return
-    path = os.path.normpath(path)
-    return (os.path.join(path, name) if include_root else name for name in os.listdir(path) if os.path.isdir(name))
-
-
-def dirfiles(path, extensions=None, include_root=False):
-    return listfiles(path, extensions, 1, include_root)
