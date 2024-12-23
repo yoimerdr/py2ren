@@ -1,4 +1,3 @@
-from . import utils, config, converter, cli
 from .config import load as load_config, create as create_config
-from .converter.syntax import CodeConverter
+from src.py2ren.converter.syntax import CodeConverter
 from .helpers import *

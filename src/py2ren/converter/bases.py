@@ -5,7 +5,7 @@ from ast import ClassDef
 
 __all__ = ('KNOWN_BASES', 'get_bases', 'replace', 'add_replacement', 'ClassDef', 'get_replacement')
 
-from src.utils.iter import itermap
+from ..utils.iter import itermap
 
 KNOWN_BASES = {name: "python_{}".format(name) for name in ("object", "list", "tuple", "dict")}
 
