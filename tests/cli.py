@@ -1,5 +1,5 @@
-import src as py2ren
+from src.py2ren import cli
 
-args = py2ren.cli.Args("../src", "./generated",
-                       force_config=True, name="py2ren", init_level=-1)
-py2ren.cli.main(args)
+args = cli.Args("../src/py2ren", "./generated",
+                force_config=True, init_level=-1)
+cli.main(args)
