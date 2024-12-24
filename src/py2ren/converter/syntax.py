@@ -124,7 +124,7 @@ class CodeConverter(object):
         strip_indexes(lines, remove_indexes)
         return body_new_line.join(lines)
 
-    def convert(self, code, name=None, init_level=None, module=None,
+    def convert(self, code, name=None, level=None, module=None,
                 class_bases=None, init_offset=0, init_body_offset=4):
 
         body_new_line = "\n" + (" " * init_body_offset)
@@ -135,7 +135,7 @@ class CodeConverter(object):
             init_offset,
             "# transformation made by py2ren. https://github.com/yoimerdr/py2ren",
             init_offset,
-            self._get_init_expression(name, init_level, module),
+            self._get_init_expression(name, level, module),
             body_new_line,
             code
         )

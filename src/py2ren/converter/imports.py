@@ -24,13 +24,13 @@ def as_expression(node):
     return offset + source
 
 
-def create_store_import(names, lineno, level=0, col_offset=0):
+def create_store_import(names, lineno, col_offset=0):
     return ImportFrom(
         module="store",
         names=names,
         lineno=lineno,
         col_offset=col_offset,
-        level=level,
+        level=0,
     )
 
 
