@@ -2,7 +2,7 @@ import ast
 import re
 
 from . import imports, bases
-from ..utils import strip_indexes
+from ..utils import strip_indexes, trymap
 from ..utils.iter import itermap
 
 
@@ -73,6 +73,8 @@ class CodeConverter(object):
         module = module.strip() if module else ''
         if not module and not name:
             raise TypeError("Cannot creates an init python expression without a module name or a name")
+
+        level = trymap(int, level,)
 
         if name and module:
             name = "." + name

@@ -3,6 +3,7 @@ import os.path
 
 from .exceptions import NonLoadableSourceConfigurationPath, NonLoadableConfigurationPath
 from ..converter.bases import KNOWN_BASES
+from ..utils import trymap
 from ..utils.filepath import listfiles, filename
 
 
@@ -196,7 +197,7 @@ def create(path, name=None, store_modules=None, level=0, class_bases=None):
 
     cfg_name = os.path.basename(path) if name is None else None
 
-    level = 0 if level is None else int(level)
+    level = trymap(int, level, 0)
 
     if os.path.isdir(path):
         modules = {}

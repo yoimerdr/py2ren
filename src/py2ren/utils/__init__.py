@@ -16,3 +16,12 @@ def strip_indexes(source, indexes):
     for index in indexes:
         del source[index - removed]
         removed += 1
+
+def trymap(func, value, default=None, allow=None):
+    if allow is None:
+        allow = Exception
+
+    try:
+        return func(value)
+    except allow:
+        return default

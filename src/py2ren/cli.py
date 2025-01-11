@@ -54,7 +54,9 @@ def parse_args():
 def main(args=None):
     if args is None:
         args = parse_args()
+
     args.path = os.path.abspath(args.path)
+
     if args.out is None:
         args.out = args.path if os.path.isdir(args.path) else os.path.dirname(args.path)
     else:
@@ -62,13 +64,15 @@ def main(args=None):
 
     if not args.name:
         args.name = filename(args.path)
-    if args.config is None:
-        args.config = get_config(args.path, args.name, level=args.init_level)
-    elif not isinstance(args.config, config.FileConfig):
-        args.config = os.path.abspath(args.path)
-        args.config = config.load_file(args.config)
 
-    if args.force_config:
+    if not args.force_config:
+        if args.config is None:
+            args.config = get_config(args.path, args.name, level=args.init_level)
+        elif isinstance(args.config, str):
+            args.config = config.load_file(args.config)
+        elif not isinstance(args.config, config.FileConfig):
+            args.config = config.load(args.path)
+    else:
         args.config = config.dump(args.path, args.name, level=args.init_level)
 
     if args.init_level is None:
