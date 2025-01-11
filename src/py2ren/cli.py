@@ -76,7 +76,7 @@ def main(args=None):
         args.config = config.dump(args.path, args.name, level=args.init_level)
 
     if args.init_level is None:
-        args.init_level = 0
+        args.init_level = args.config.level
 
     converter = CodeConverter(args.config)
 

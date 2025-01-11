@@ -199,6 +199,9 @@ def create(path, name=None, store_modules=None, level=0, class_bases=None):
 
     level = trymap(int, level, 0)
 
+    if cfg_name is not None:
+        name = filename(cfg_name)
+
     if os.path.isdir(path):
         modules = {}
         for filepath in listfiles(path, ('.py',)):
@@ -219,8 +222,6 @@ def create(path, name=None, store_modules=None, level=0, class_bases=None):
         return ModuleConfig(name, store_modules, Module.map_modules(modules), level, class_bases or KNOWN_BASES)
 
     elif os.path.isfile(path):
-        if cfg_name is not None:
-            name = filename(cfg_name)
         return FileConfig(name, store_modules, level, class_bases or KNOWN_BASES)
     raise NonLoadableSourceConfigurationPath(path)
 
