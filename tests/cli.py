@@ -1,5 +1,9 @@
-from src.py2ren import cli
+from src.py2ren import cli, create_config
 
-args = cli.Args("../src/py2ren", "./generated",
-                force_config=True, init_level=-1)
+path = "../src/py2ren"
+
+cfg = create_config(path, level='-1')
+
+args = cli.Args(path, "./generated",
+                config=cfg, init_level=0)
 cli.main(args)
