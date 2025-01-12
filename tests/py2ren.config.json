@@ -1,0 +1,54 @@
+{
+  "name": "py2ren",
+  "initLevel": 0,
+  "classBases": {
+    "object": "python_object",
+    "list": "python_list",
+    "tuple": "python_tuple",
+    "dict": "python_dict"
+  },
+  "storedModules": [],
+  "modules": {
+    "cli.py": {},
+    "helpers.py": {
+      "initLevel": -1
+    },
+    "__init__.py": {},
+    "__main__.py": {
+      "initLevel": -1
+    },
+    "config": {
+      "initLevel": -2,
+      "modules": {
+        "config.py": {},
+        "exceptions.py": {
+          "initLevel": -3
+        },
+        "__init__.py": {
+          "initLevel": -1
+        }
+      }
+    },
+    "converter": {
+      "initLevel": -3,
+      "modules": {
+        "bases.py": {},
+        "imports.py": {},
+        "syntax.py": {},
+        "__init__.py": {
+          "initLevel": -1
+        }
+      }
+    },
+    "utils": {
+      "initLevel": -5,
+      "modules": {
+        "filepath.py": {},
+        "iter.py": {},
+        "__init__.py": {
+          "initLevel": -4
+        }
+      }
+    }
+  }
+}
