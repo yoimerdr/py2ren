@@ -31,7 +31,7 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/yoimerdr/py2ren"
-Documentation = "https://yoimerdr.github.io/py2ren/docs/1.0.0/quickstart.html"
+Documentation = "https://yoimerdr.github.io/py2ren/docs/1.0/quickstart.html"
 Repository = "https://github.com/yoimerdr/py2ren.git"
 "Bug Tracker" = "https://github.com/yoimerdr/py2ren/issues"
 Changelog = "https://github.com/yoimerdr/py2ren/CHANGELOG.md"
