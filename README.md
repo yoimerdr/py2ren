@@ -3,8 +3,13 @@ A tool to automate the transformation of native python module to ren'py store mo
 
 ## Requirements
 
-Before you start, you need to download a py2ren [release](https://www.github.com/yoimerdr/py2ren/releases),
-and have a python version 2.7 or later installed on your computer. Then unzip.
+* python >= 2.7
+
+## Installation
+
+You can install with pip, `pip install py2ren`
+
+Or you can download a py2ren [release](https://www.github.com/yoimerdr/py2ren/releases).
 
 ## Usage
 ### CLI usage
@@ -53,9 +58,7 @@ init -1 python in sample_module:
         return "Hello, " + name + "."
 ````
 
-> - py2ren does not remove type annotations, so if you want better compatibility with renpy projects, you should remove them.
-> - if the  **out** parameter is specified, by default the parent path of the file, or the folder path itself, will be used.
-
+> py2ren does not remove type annotations, so if you want better compatibility with renpy projects, you should remove them.
 
 ### Module usage
 
