@@ -1,9 +1,8 @@
-from py2ren import cli, create_config
+from py2ren import cli
 
 path = "../py2ren"
 
-cfg = create_config(path, level='-1')
 
-args = cli.Args(path, "./generated",
-                config=cfg, init_level=0)
+args = cli.Args(path, "./generated/py2ren",
+                config="./py2ren.config.json", init_level=0)
 cli.main(args)
