@@ -6,7 +6,7 @@ def rowchars(text, char, start=0):
     for ch in text[start:]:
         if ch == char:
             count += 1
-        elif count != -1:
+        elif count != 0:
             break
     return -1 if count == 0 else count
 
