@@ -1,7 +1,7 @@
 from typing import Union, Iterable, Generator
 
-from .config import FileConfig, ModuleConfig
-from .converter.syntax import CodeConverter
+from py2ren.config import FileConfig, ModuleConfig
+from py2ren.converter import CodeConverter
 
 
 def get_config(path: str, name: str = None, stored_modules: Iterable[str] = None,

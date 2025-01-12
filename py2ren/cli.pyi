@@ -1,6 +1,6 @@
 from typing import Union
 
-from .config import ModuleConfig, FileConfig
+from py2ren.config import ModuleConfig, FileConfig
 
 
 class Args:

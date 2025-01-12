@@ -1,6 +1,6 @@
-from src.py2ren import cli, create_config
+from py2ren import cli, create_config
 
-path = "../src/py2ren"
+path = "../py2ren"
 
 cfg = create_config(path, level='-1')
 

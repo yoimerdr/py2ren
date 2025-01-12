@@ -1,7 +1,7 @@
 from typing import Union, Any
 
 from .imports import ImportFrom, Import
-from ..config import FileConfig, ModuleConfig
+from py2ren.config import FileConfig, ModuleConfig
 
 
 class CodeConverter(object):
