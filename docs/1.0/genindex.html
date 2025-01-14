@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; Py2ren Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/lunr-searchbox.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/fabup.css?v=592a04eb" />
+      <link rel="stylesheet" type="text/css" href="_static/css/code-syntax.css?v=9e859d3a" />
+      <link rel="stylesheet" type="text/css" href="_static/css/font-jb-sans.css?v=e3b0d0c7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/index.css?v=32e30035" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script src="https://unpkg.com/lunr/lunr.min.js"></script>
+        <script src="_static/js/lunr-searchbox.js"></script>
+        <script src="_static/js/lunr-search-data.js"></script>
+        <script src="_static/js/fabup.js?v=0808abf6"></script>
+        <script src="_static/js/code-syntax.js?v=063008fa"></script>
+        <script src="_static/js/index.js?v=ce57efe0"></script>
+        <script src="_static/js/icon-fixer.js?v=afd91005"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            py2ren
+          </a>
+              <div class="version">
+                1.0 Documentation
+              </div><form class="search" id="ls_search-form" action="javascript:;" onsubmit="onSubmitSearch(this)">
+  <div class="search-field-container">
+    <input class="search-field"
+           type="text" autocomplete="off" id="ls_search-field" name="q" placeholder="Search">
+
+
+    <button type="reset" class="search-reset-button" id="search-reset-button">
+      <svg class="search-reset-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+           width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18 17.94 6M18 18 6.06 6"/>
+      </svg>
+    </button>
+
+    <button type="submit" class="search-button">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+           viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+           width="512px" height="512px">
+            <path
+              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"></path>
+          </svg>
+    </button>
+  </div>
+
+  <ul class="search-results" id="ls_search-results"></ul>
+</form>
+
+
+<script>
+  var onSubmitSearch = (function () {
+    var field = $("#ls_search-field").first();
+    var results = $("#ls_search-results");
+    function listener(form) {
+      if (!field.val())
+        return;
+
+      var targetUrl = "search.html?q=" + field.val();
+
+      var relative = LunrDataSearch.relativeUrl
+
+      if (relative)
+        targetUrl = relative + targetUrl;
+
+      var selected = results.find(".search-result-ref.selected")
+        .first();
+      if (selected)
+        targetUrl = selected.attr('href');
+
+      location.replace(targetUrl)
+    }
+
+    return listener
+  })()
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/config.html">config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/helpers.html">helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/converter/index.html">converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/utils/index.html">utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/cli.html">cli</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions-docs.html">Docs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">py2ren</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/converter/bases.html#py2ren.converter.bases.add_replacement">add_replacement() (in module py2ren.converter.bases)</a>
+</li>
+      <li><a href="modules/cli.html#py2ren.cli.Args">Args (class in py2ren.cli)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/converter/imports.html#py2ren.converter.imports.as_expression">as_expression() (in module py2ren.converter.imports)</a>
+</li>
+      <li><a href="modules/converter/imports.html#py2ren.converter.imports.as_store_import">as_store_import() (in module py2ren.converter.imports)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.Init.class_bases">class_bases (Init property)</a>
+</li>
+      <li><a href="modules/converter/bases.html#py2ren.converter.bases.ClassDef">ClassDef (class in py2ren.converter.bases)</a>
+</li>
+      <li><a href="modules/converter/syntax.html#py2ren.converter.syntax.CodeConverter">CodeConverter (class in py2ren.converter.syntax)</a>
+</li>
+      <li><a href="modules/converter/syntax.html#py2ren.converter.syntax.CodeConverter.config">config (CodeConverter property)</a>
+</li>
+      <li><a href="modules/converter/syntax.html#py2ren.converter.syntax.CodeConverter.convert">convert() (CodeConverter method)</a>
+
+      <ul>
+        <li><a href="modules/helpers.html#py2ren.helpers.convert">(in module py2ren.helpers)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/converter/syntax.html#py2ren.converter.syntax.CodeConverter.convert_imports">convert_imports() (CodeConverter method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/converter/syntax.html#py2ren.converter.syntax.CodeConverter.convert_simple">convert_simple() (CodeConverter method)</a>
+</li>
+      <li><a href="modules/helpers.html#py2ren.helpers.convertw">convertw() (in module py2ren.helpers)</a>
+</li>
+      <li><a href="modules/helpers.html#py2ren.helpers.convfile">convfile() (in module py2ren.helpers)</a>
+</li>
+      <li><a href="modules/helpers.html#py2ren.helpers.convfilew">convfilew() (in module py2ren.helpers)</a>
+</li>
+      <li><a href="modules/helpers.html#py2ren.helpers.convfolder">convfolder() (in module py2ren.helpers)</a>
+</li>
+      <li><a href="modules/helpers.html#py2ren.helpers.convfolderw">convfolderw() (in module py2ren.helpers)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.create">create() (in module py2ren.config)</a>
+</li>
+      <li><a href="modules/converter/imports.html#py2ren.converter.imports.create_store_import">create_store_import() (in module py2ren.converter.imports)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.dump">dump() (in module py2ren.config)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.dump_config">dump_config() (in module py2ren.config)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.FileConfig">FileConfig (class in py2ren.config)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.FileModule">FileModule (class in py2ren.config)</a>
+</li>
+      <li><a href="modules/utils/filepath.html#py2ren.utils.filepath.filename">filename() (in module py2ren.utils.filepath)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/utils/iter.html#py2ren.utils.iter.first">first() (in module py2ren.utils.iter)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.Init.from_dict">from_dict() (Init class method)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.FileConfig.from_file">from_file() (FileConfig class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/converter/bases.html#py2ren.converter.bases.get_bases">get_bases() (in module py2ren.converter.bases)</a>
+</li>
+      <li><a href="modules/helpers.html#py2ren.helpers.get_config">get_config() (in module py2ren.helpers)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/converter/bases.html#py2ren.converter.bases.get_regex">get_regex() (in module py2ren.converter.bases)</a>
+</li>
+      <li><a href="modules/converter/bases.html#py2ren.converter.bases.get_replacement">get_replacement() (in module py2ren.converter.bases)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.FileModule.ignore">ignore (FileModule property)</a>
+</li>
+      <li><a href="modules/converter/imports.html#py2ren.converter.imports.Import">Import (class in py2ren.converter.imports)</a>
+</li>
+      <li><a href="modules/converter/imports.html#py2ren.converter.imports.ImportFrom">ImportFrom (class in py2ren.converter.imports)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.Init">Init (class in py2ren.config)</a>
+</li>
+      <li><a href="modules/utils/iter.html#py2ren.utils.iter.iterfilter">iterfilter() (in module py2ren.utils.iter)</a>
+</li>
+      <li><a href="modules/utils/iter.html#py2ren.utils.iter.itermap">itermap() (in module py2ren.utils.iter)</a>
+</li>
+      <li><a href="modules/utils/iter.html#py2ren.utils.iter.iterrange">iterrange() (in module py2ren.utils.iter)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/converter/bases.html#py2ren.converter.bases.KNOWN_BASES">KNOWN_BASES (in module py2ren.converter.bases)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/utils/iter.html#py2ren.utils.iter.last">last() (in module py2ren.utils.iter)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.Init.level">level (Init property)</a>
+</li>
+      <li><a href="modules/utils/filepath.html#py2ren.utils.filepath.listfiles">listfiles() (in module py2ren.utils.filepath)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.load">load() (in module py2ren.config)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.load_dict">load_dict() (in module py2ren.config)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.load_file">load_file() (in module py2ren.config)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/cli.html#py2ren.cli.main">main() (in module py2ren.cli)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.Module.map_modules">map_modules() (Module static method)</a>
+</li>
+      <li><a href="modules/utils/filepath.html#py2ren.utils.filepath.mkdirs">mkdirs() (in module py2ren.utils.filepath)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="modules/converter/bases.html#module-py2ren.converter.bases">py2ren.converter.bases</a>
+</li>
+        <li><a href="modules/converter/imports.html#module-py2ren.converter.imports">py2ren.converter.imports</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.Module">Module (class in py2ren.config)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.ModuleConfig">ModuleConfig (class in py2ren.config)</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.Module.modules">modules (Module property)</a>
+
+      <ul>
+        <li><a href="modules/config.html#py2ren.config.ModuleConfig.modules">(ModuleConfig property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.Init.name">name (Init property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.NonLoadableConfigurationPath">NonLoadableConfigurationPath</a>
+</li>
+      <li><a href="modules/config.html#py2ren.config.NonLoadableSourceConfigurationPath">NonLoadableSourceConfigurationPath</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/cli.html#py2ren.cli.parse_args">parse_args() (in module py2ren.cli)</a>
+</li>
+      <li>
+    py2ren.converter.bases
+
+      <ul>
+        <li><a href="modules/converter/bases.html#module-py2ren.converter.bases">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    py2ren.converter.imports
+
+      <ul>
+        <li><a href="modules/converter/imports.html#module-py2ren.converter.imports">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/utils/filepath.html#py2ren.utils.filepath.read">read() (in module py2ren.utils.filepath)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/converter/bases.html#py2ren.converter.bases.replace">replace() (in module py2ren.converter.bases)</a>
+</li>
+      <li><a href="modules/utils/index.html#py2ren.utils.rowchars">rowchars() (in module py2ren.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.FileConfig.stored_modules">stored_modules (FileConfig property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/utils/index.html#py2ren.utils.strip_indexes">strip_indexes() (in module py2ren.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#py2ren.config.Init.to_dict">to_dict() (Init method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/utils/index.html#py2ren.utils.trymap">trymap() (in module py2ren.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/utils/filepath.html#py2ren.utils.filepath.write">write() (in module py2ren.utils.filepath)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025, Yoimer Davila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
