@@ -53,6 +53,9 @@ def convfolderw(path, converter, class_bases=None, init_offset=0, init_body_offs
             level = level if module.level is None else module.level
             parent = "{}.{}".format(parent, filename(part))
 
+        if not module:
+            continue
+
         module = module.modules.get(parts[-1], None)
         if module is None or module.ignore:
             continue
