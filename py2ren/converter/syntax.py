@@ -139,5 +139,5 @@ class CodeConverter(object):
             init_offset,
             self._get_init_expression(name, level, module),
             body_new_line,
-            code
+            code if code else "pass"
         )
