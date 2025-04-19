@@ -3,7 +3,7 @@ import re
 
 from . import imports, bases
 from ..utils import strip_indexes, trymap
-from ..utils.iter import itermap
+from ..utils.iter import itermap, first
 
 FORBIDDEN_INIT = (
     'image', 'python',
@@ -40,7 +40,9 @@ class CodeConverter(object):
         return self._config
 
     def _convert_import(self, node):
-        stores = tuple((i, name) for i, name in enumerate(node.names) if name.name in self.config.stored_modules)
+        stores = tuple((i, name) for i, name in enumerate(node.names)
+                       if name.name in self.config.stored_modules or
+                       first(name.name.split('.')) in self.config.stored_modules)
 
         if stores and len(stores) == len(node.names):
             return [imports.as_store_import(node)]
