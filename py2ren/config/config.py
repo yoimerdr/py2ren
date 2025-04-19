@@ -3,7 +3,8 @@ import os.path
 
 from .exceptions import NonLoadableSourceConfigurationPath, NonLoadableConfigurationPath
 from ..converter.bases import KNOWN_BASES
-from ..utils import trymap
+from ..converter.imports import path2import, get_internals
+from ..utils import trymap, toposort
 from ..utils.filepath import listfiles, filename
 
 
@@ -192,7 +193,7 @@ def load(path, creates=True):
     return load_file(filepath)
 
 
-def create(path, name=None, store_modules=None, level=0, class_bases=None):
+def create(path, name=None, store_modules=None, level=0, class_bases=None, analyze_dependencies=False):
     path = os.path.normpath(path)
 
     cfg_name = os.path.basename(path) if name is None else None
@@ -203,22 +204,71 @@ def create(path, name=None, store_modules=None, level=0, class_bases=None):
         name = filename(cfg_name)
 
     if os.path.isdir(path):
+        packages = {}
         modules = {}
         for filepath in listfiles(path, ('.py',)):
+            # maps dependencies
+            if analyze_dependencies:
+                module = path2import(filepath)
+                fpath = os.path.join(path, filepath)
+                packages[module] = get_internals(fpath, path, name)
+
+            # default mapping
             parts = filepath.split(os.path.sep)
             current = modules
             lvl = None
             for lvl, part in enumerate(parts[:-1], start=1):
                 if part not in current:
-                    current[part] = {"modules": {}, "initLevel": level - lvl - 1}
+                    source = {"modules": {}}
+                    if not analyze_dependencies:
+                        source["initLevel"] = level - lvl - 1
+                    current[part] = source
                 current = current[part]["modules"]
+
             source = {}
-            if lvl is None:
-                if parts[-1] != "__init__.py":
-                    source["initLevel"] = level - 1
-            elif parts[-1] == "__init__.py":
-                source["initLevel"] = level - lvl
+            if not analyze_dependencies:
+                if lvl is None:
+                    if parts[-1] != "__init__.py":
+                        source["initLevel"] = level - 1
+                elif parts[-1] == "__init__.py":
+                    source["initLevel"] = level - lvl
             current[parts[-1]] = source
+
+        if analyze_dependencies and packages:
+            # sorts the dependencies
+            packages = tuple(toposort(packages))
+
+            # iterates over each set of names, starting with the one with the lowest dependencies
+            for index, md_names in enumerate(reversed(packages)):
+                init = level - index
+                # iterates over each module's imports
+                for module in md_names:
+                    # sets source modules config as current
+                    current = modules
+                    parts = module.split(".")
+                    if not parts:
+                        continue
+
+                    # iterates over each module's folders
+                    for part in parts[:-1]:
+                        # checks is source module config
+                        current = modules if current is modules else current["modules"]
+                        # get the module config of the module
+                        current = current.get(part, None)
+                        if not current:
+                            break
+
+                    # checks is source module config
+                    current = modules if current is modules else current["modules"] if current else None
+
+                    # get the file config of the file
+                    current = current.get(parts[-1] + ".py", None) if current else None
+
+                    if current is None:
+                        continue
+
+                    current["initLevel"] = init
+
         return ModuleConfig(name, store_modules, Module.map_modules(modules), level, class_bases or KNOWN_BASES)
 
     elif os.path.isfile(path):
@@ -232,8 +282,8 @@ def dump_config(folder, config):
         json.dump(config.to_dict(), f, indent=2, ensure_ascii=False)
 
 
-def dump(path, name=None, store_modules=None, level=0, class_bases=None):
-    config = create(path, name, store_modules, level, class_bases)
+def dump(path, name=None, store_modules=None, level=0, class_bases=None, analyze_dependencies=False):
+    config = create(path, name, store_modules, level, class_bases, analyze_dependencies)
     path = path if isinstance(config, ModuleConfig) else os.path.dirname(path)
     dump_config(path, config)
     return config

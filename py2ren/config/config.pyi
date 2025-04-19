@@ -224,7 +224,8 @@ def load(path: str, creates: bool = True) -> Union[ModuleConfig, FileConfig]:
 
 
 def create(path: str, name: str = None, store_modules: Iterable[str] = None,
-           level: int = 0, class_bases: dict[str, str] = None) -> Union[ModuleConfig, FileConfig]:
+           level: int = 0, class_bases: dict[str, str] = None,
+           analyze_dependencies: bool = False) -> Union[ModuleConfig, FileConfig]:
     """
     Creates a configuration for the given path.
 
@@ -233,6 +234,11 @@ def create(path: str, name: str = None, store_modules: Iterable[str] = None,
     :param store_modules: The modules used in renpy are store modules.
     :param level: The init python level.
     :param class_bases: The base classes and their replacements.
+    :param analyze_dependencies: Indicates whether the module's internal dependencies are analyzed.
+
+    Notes:
+        * Analyzing internal dependencies creates a better structure for init levels.
+        * Analyzing internal dependencies may delay the creation of the configuration, since all module files are parsed and analyzed.
     """
     ...
 
@@ -248,7 +254,8 @@ def dump_config(folder: str, config: Union[ModuleConfig, FileConfig]):
 
 
 def dump(path: str, name: str = None, store_modules: Iterable[str] = None,
-         level: int = 0, class_bases: dict[str, str] = None) -> Union[ModuleConfig, FileConfig]:
+         level: int = 0, class_bases: dict[str, str] = None,
+         analyze_dependencies: bool = False) -> Union[ModuleConfig, FileConfig]:
     """
     Creates and dumps the configuration for the given path.
 
@@ -257,6 +264,11 @@ def dump(path: str, name: str = None, store_modules: Iterable[str] = None,
     :param store_modules: The modules used in renpy are store modules.
     :param level: The init python level.
     :param class_bases: The base classes and their replacements.
+    :param analyze_dependencies: Indicates whether the module's internal dependencies are analyzed.
+
+    Notes:
+        * Analyzing internal dependencies creates a better structure for init levels.
+        * Analyzing internal dependencies may delay the creation of the configuration, since all module files are parsed and analyzed.
 
     :return: The created configuration.
     """

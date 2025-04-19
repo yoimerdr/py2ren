@@ -15,10 +15,11 @@ class Args:
     name: str
     no_keep_structure: bool
     force_config: bool
+    analyze_dependencies: bool
 
     def __init__(self, path: str, out: str = None, config: Union[str, ModuleConfig, FileConfig] = None,
                  init_level: int = None, name: str = None,
-                 no_keep_structure: bool = False, force_config: bool = False):
+                 no_keep_structure: bool = False, force_config: bool = False, analyze_dependencies: bool = False):
         """
         :param path: The target path.
         :param out: The output folder.
@@ -27,6 +28,7 @@ class Args:
         :param name: The name of the target as store module.
         :param no_keep_structure: If true, no keeps the structure of the source folder.
         :param force_config: If true, creates and dumps a new configuration.
+        :param analyze_dependencies: Indicates whether the module's internal dependencies are analyzed.
         """
         pass
 

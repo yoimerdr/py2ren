@@ -1,5 +1,6 @@
 import ast
-from typing import Union
+from collections import Iterable
+from typing import Union, AnyStr
 
 
 class Import(ast.Import):
@@ -15,6 +16,14 @@ class ImportFrom(ast.ImportFrom):
     """
     pass
 
+
+def path2import(path: AnyStr) -> AnyStr: ...
+
+def import2path(imp: AnyStr) -> AnyStr: ...
+
+def i2import(iterable: Iterable[AnyStr]) -> AnyStr: ...
+
+def get_internals(filepath: AnyStr, root: AnyStr, package: AnyStr = None) -> tuple[str, ...]: ...
 
 def as_expression(node: Union[Import, ImportFrom]) -> str:
     """

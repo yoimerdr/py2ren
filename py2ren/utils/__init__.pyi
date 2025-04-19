@@ -1,8 +1,11 @@
-from typing import TypeVar, Iterable, Callable, Type, MutableSequence
+from typing import TypeVar, Iterable, Callable, Type, MutableSequence, Generator
 
 _T = TypeVar("_T")
 _R = TypeVar("_R")
 
+def self(it: _T) -> _T: ...
+
+def toposort(data: dict[str, Iterable[_T]]) -> Generator[set[_T]]: ...
 
 def rowchars(text: str, char: str, start: int = 0) -> int:
     """
