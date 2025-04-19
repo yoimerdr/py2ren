@@ -5,6 +5,10 @@ from . import imports, bases
 from ..utils import strip_indexes, trymap
 from ..utils.iter import itermap
 
+FORBIDDEN_INIT = (
+    'image', 'python',
+)
+
 
 def _check_remove_indexes(lines, lineno, source, indexes):
     offset = source.count("\\")
@@ -74,10 +78,15 @@ class CodeConverter(object):
         if not module and not name:
             raise TypeError("Cannot creates an init python expression without a module name or a name")
 
-        level = trymap(int, level,)
+        level = trymap(int, level, )
 
         if name and module:
             name = "." + name
+
+        names = name.split(".")
+        for it in names:
+            if it in FORBIDDEN_INIT:
+                raise NameError("The keyword '{}' is forbidden in init python expression".format(it))
         return "init{} python in{}{}".format(
             " {}".format(level) if level else "",
             " {}".format(module),
