@@ -16,11 +16,11 @@ class Args(object):
     __slots__ = (
         'path', 'config', 'out',
         'init_level', 'name', 'no_keep_structure',
-        'force_config'
+        'force_config', 'analyze_dependencies',
     )
 
     def __init__(self, path, out=None, config=None, init_level=None,
-                 name=None, no_keep_structure=False, force_config=False):
+                 name=None, no_keep_structure=False, force_config=False, analyze_dependencies=False):
         self.path = path
         self.config = config
         self.out = out
@@ -28,6 +28,7 @@ class Args(object):
         self.name = name
         self.no_keep_structure = no_keep_structure
         self.force_config = force_config
+        self.analyze_dependencies = analyze_dependencies
 
 
 def parse_args():
@@ -48,6 +49,9 @@ def parse_args():
                         help="flag to disable keeping the module structure.")
     parser.add_argument("-fc", "--force-config", action="store_true", default=False,
                         help="flag to force the creation of the configuration file.")
+
+    parser.add_argument('-ad', '--analyze-dependencies', action="store_true", default=False,
+                        help="flag to analyze dependencies when the config is created.")
     return parser.parse_args()
 
 
@@ -67,13 +71,13 @@ def main(args=None):
 
     if not args.force_config:
         if args.config is None:
-            args.config = get_config(args.path, args.name, level=args.init_level)
+            args.config = get_config(args.path, args.name, level=args.init_level, analyze_dependencies=args.analyze_dependencies)
         elif isinstance(args.config, str):
             args.config = config.load_file(args.config)
         elif not isinstance(args.config, config.FileConfig):
             args.config = config.load(args.path)
     else:
-        args.config = config.dump(args.path, args.name, level=args.init_level)
+        args.config = config.dump(args.path, args.name, level=args.init_level, analyze_dependencies=args.analyze_dependencies)
 
     if args.init_level is None:
         args.init_level = args.config.level
