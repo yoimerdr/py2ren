@@ -3,7 +3,11 @@ import re
 
 from . import imports, bases
 from ..utils import strip_indexes, trymap
-from ..utils.iter import itermap
+from ..utils.iter import itermap, first
+
+FORBIDDEN_INIT = (
+    'image', 'python',
+)
 
 
 def _check_remove_indexes(lines, lineno, source, indexes):
@@ -36,7 +40,9 @@ class CodeConverter(object):
         return self._config
 
     def _convert_import(self, node):
-        stores = tuple((i, name) for i, name in enumerate(node.names) if name.name in self.config.stored_modules)
+        stores = tuple((i, name) for i, name in enumerate(node.names)
+                       if name.name in self.config.stored_modules or
+                       first(name.name.split('.')) in self.config.stored_modules)
 
         if stores and len(stores) == len(node.names):
             return [imports.as_store_import(node)]
@@ -74,10 +80,15 @@ class CodeConverter(object):
         if not module and not name:
             raise TypeError("Cannot creates an init python expression without a module name or a name")
 
-        level = trymap(int, level,)
+        level = trymap(int, level, )
 
         if name and module:
             name = "." + name
+
+        names = name.split(".")
+        for it in names:
+            if it in FORBIDDEN_INIT:
+                raise NameError("The keyword '{}' is forbidden in init python expression".format(it))
         return "init{} python in{}{}".format(
             " {}".format(level) if level else "",
             " {}".format(module),
@@ -139,5 +150,5 @@ class CodeConverter(object):
             init_offset,
             self._get_init_expression(name, level, module),
             body_new_line,
-            code
+            code if code else "pass"
         )

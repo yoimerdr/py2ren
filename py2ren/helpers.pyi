@@ -5,7 +5,8 @@ from py2ren.converter.syntax import CodeConverter
 
 
 def get_config(path: str, name: str = None, stored_modules: Iterable[str] = None,
-               level: int = 0, temp_config: bool = False) -> Union[FileConfig, ModuleConfig]:
+               level: int = 0, temp_config: bool = False, analyze_dependencies: bool = False) -> Union[
+    FileConfig, ModuleConfig]:
     """
     Gets a configuration for the given path.
 
@@ -16,6 +17,7 @@ def get_config(path: str, name: str = None, stored_modules: Iterable[str] = None
     :param stored_modules: The modules used in renpy are store modules.
     :param level: The init python level.
     :param temp_config: If true, no dumps the configuration if it does not exist.
+    :param analyze_dependencies: Indicates whether the module's internal dependencies are analyzed.
 
     :see: :func:`.config.load`, :func:`.config.dump`
     """
@@ -80,7 +82,8 @@ def convfolderw(path: str, converter: CodeConverter, class_bases: dict[str, str]
 
 def convfolder(path: str, name: str = None, stored_modules: Iterable[str] = None,
                level: int = 0, class_bases: dict[str, str] = None, temp_config: bool = False,
-               init_offset: int = 0, init_body_offset: int = 4) -> Generator[tuple[str, str]]:
+               init_offset: int = 0, init_body_offset: int = 4, analyze_dependencies: bool = False) \
+        -> Generator[tuple[str, str]]:
     """
     Converts the content of the given folder.
 
@@ -94,6 +97,7 @@ def convfolder(path: str, name: str = None, stored_modules: Iterable[str] = None
     :param temp_config: If true, no dumps the configuration if it does not exist.
     :param init_offset: The times to add a space offset to the init expression.
     :param init_body_offset: The times to add a space offset to the init body.
+    :param analyze_dependencies: Indicates whether the module's internal dependencies are analyzed.
     :return: An iterator with the rpy filepath and the converted content.
     """
     pass
@@ -121,7 +125,8 @@ def convertw(path: str, out: str, converter: CodeConverter, name: str = None,
 
 def convert(path: str, out: str, name: str = None, stored_modules: Iterable[str] = None,
             level: int = 0, temp_config: bool = False, module: str = None, class_bases: dict[str, str] = None,
-            init_offset: int = 0, init_body_offset: int = 4, keep_structure: bool = True):
+            init_offset: int = 0, init_body_offset: int = 4, keep_structure: bool = True,
+            analyze_dependencies: bool = False):
     """
     Converts the content of the given path.
 
@@ -138,5 +143,6 @@ def convert(path: str, out: str, name: str = None, stored_modules: Iterable[str]
     :param init_offset: The times to add a space offset to the init expression.
     :param init_body_offset: The times to add a space offset to the init body.
     :param keep_structure: If true, keeps the structure of the source folder.
+    :param analyze_dependencies: Indicates whether the module's internal dependencies are analyzed.
     """
     pass

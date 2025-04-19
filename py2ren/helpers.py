@@ -16,12 +16,12 @@ __all__ = (
 )
 
 
-def get_config(path, name=None, stored_modules=None, level=0, temp_config=False):
+def get_config(path, name=None, stored_modules=None, level=0, temp_config=False, analyze_dependencies=False):
     try:
         return load(path, creates=False)
     except NonLoadableConfigurationPath:
         creates = create if temp_config else dump
-        return creates(path, name, stored_modules, level)
+        return creates(path, name, stored_modules, level, analyze_dependencies=analyze_dependencies)
 
 
 def convfilew(path, converter, name=None, level=0, module=None,
@@ -74,8 +74,8 @@ def convfolderw(path, converter, class_bases=None, init_offset=0, init_body_offs
 
 
 def convfolder(path, name=None, stored_modules=None, level=0, class_bases=None,
-               temp_config=False, init_offset=0, init_body_offset=4):
-    cfg = get_config(path, name, stored_modules, level, temp_config)
+               temp_config=False, init_offset=0, init_body_offset=4, analyze_dependencies=False):
+    cfg = get_config(path, name, stored_modules, level, temp_config, analyze_dependencies)
     transformer = CodeConverter(cfg)
     return convfolderw(path, transformer, class_bases, init_offset, init_body_offset)
 
@@ -104,7 +104,8 @@ def convertw(path, out, converter, name=None, level=0, module=None,
 
 
 def convert(path, out, name=None, stored_modules=None, level=0, temp_config=False,
-            module=None, class_bases=None, init_offset=0, init_body_offset=4, keep_structure=True):
-    config = get_config(path, name, stored_modules, level, temp_config)
+            module=None, class_bases=None, init_offset=0, init_body_offset=4, keep_structure=True,
+            analyze_dependencies=False):
+    config = get_config(path, name, stored_modules, level, temp_config, analyze_dependencies)
     converter = CodeConverter(config)
     convertw(path, out, converter, name, level, module, class_bases, init_offset, init_body_offset, keep_structure)

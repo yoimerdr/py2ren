@@ -31,6 +31,7 @@ Options:
   - **-n, --name**:                    the base module name, must not contain spaces.
   - **-il, --init-level**:             the init level for the init expression.
   - **-c, --config**:                  path to the configuration file.
+  - **-ad, --analyze-dependencies**:   flag to analyze internal modules on create config.
   - **-nks, --no-keep-structure**:     flag to disable keeping the module structure.
   - **-fc, --force-config**:           flag to force the creation of the configuration file.
   - **-h, --help**:                    show the help message and exit
@@ -73,7 +74,6 @@ import py2ren
 py2ren.convert("filename.py", ".", "sample_module")
 ````
 
-    
+### Docs
 
-
-
+You can read the docs [here](https://yoimerdr.github.io/py2ren/docs/).
