@@ -9,44 +9,57 @@
   },
   "storedModules": [],
   "modules": {
-    "cli.py": {},
+    "cli.py": {
+      "initLevel": 0
+    },
     "helpers.py": {
+      "initLevel": -2
+    },
+    "__init__.py": {
       "initLevel": -1
     },
-    "__init__.py": {},
     "__main__.py": {
-      "initLevel": -1
+      "initLevel": -7
     },
     "config": {
-      "initLevel": -2,
       "modules": {
-        "config.py": {},
+        "config.py": {
+          "initLevel": -4
+        },
         "exceptions.py": {
-          "initLevel": -3
+          "initLevel": -7
         },
         "__init__.py": {
-          "initLevel": -1
+          "initLevel": -3
         }
       }
     },
     "converter": {
-      "initLevel": -3,
       "modules": {
-        "bases.py": {},
-        "imports.py": {},
-        "syntax.py": {},
+        "bases.py": {
+          "initLevel": -6
+        },
+        "imports.py": {
+          "initLevel": -5
+        },
+        "syntax.py": {
+          "initLevel": -4
+        },
         "__init__.py": {
-          "initLevel": -1
+          "initLevel": -3
         }
       }
     },
     "utils": {
-      "initLevel": -5,
       "modules": {
-        "filepath.py": {},
-        "iter.py": {},
+        "filepath.py": {
+          "initLevel": -7
+        },
+        "iter.py": {
+          "initLevel": -7
+        },
         "__init__.py": {
-          "initLevel": -4
+          "initLevel": -6
         }
       }
     }
