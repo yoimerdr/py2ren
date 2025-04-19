@@ -34,6 +34,7 @@ Options:
   -n, --name                    the base module name, must not contain spaces.
   -il, --init-level             the init level for the init expression.
   -c, --config                  path to the configuration file.
+  -ad, --analyze-dependencies   flag to analyze internal modules on create config.
   -nks, --no-keep-structure     flag to disable keeping the module structure.
   -fc, --force-config           flag to force the creation of the configuration file.
   -h, --help                    show the help message and exit
@@ -71,7 +72,7 @@ After the conversion, you will get:
 
 .. note::
     * py2ren does not remove type annotations, so if you want better compatibility with renpy projects, you should remove them.
-    * if the  **out** parameter is specified, by default the parent path of the file, or the folder path itself, will be used.
+    * if the **out** parameter is not specified, by default the parent path of the file, or the folder path itself, will be used.
 
 
 Module usage

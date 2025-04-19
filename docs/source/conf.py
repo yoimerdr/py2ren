@@ -16,7 +16,7 @@ sys.path.append(os.path.abspath('../../src/'))
 project = 'py2ren'
 copyright = '2024-{}, Yoimer Davila'.format(datetime.date.today().year)
 author = 'Yoimer Davila'
-release = '1.0'
+release = '1.1.0'
 version = release + " Documentation"
 
 html_title = project.capitalize() + " Documentation"
